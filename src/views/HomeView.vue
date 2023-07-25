@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import SearchForm from '../components/SearchForm.vue'
 </script>
 
 <template>
@@ -13,6 +14,6 @@
         <b>Discover the Cheapest Deals, Hottest Destinations, and Smoothest Takeoffs with Just One Click!</b>
       </p>
     </div>
-    
+    <SearchForm></SearchForm>
   </main>
 </template>
