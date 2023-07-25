@@ -2,7 +2,9 @@
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 
-const cities = ["California", "Colorado", "Florida", "Georgia", "Texas", "Wyoming"];
+import { useSearchStore } from '@/stores/searchStore'
+const searchStore = useSearchStore()
+const cities = searchStore.cities
 
 const searchForm = ref({
   origin: "",
