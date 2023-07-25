@@ -159,6 +159,7 @@ export const useSearchStore = defineStore('counter', () => {
   }
 
   const searchResults = ref<Flight[]>([])
+  const relatedResults = ref<Flight[]>([])
 
   const searchFlights = (origin: string, destiny: string, departureDate: string, returnDate: string) => {
     setLoadingState(true)
@@ -180,6 +181,20 @@ export const useSearchStore = defineStore('counter', () => {
       return true
     }))
 
+    relatedResults.value = flightsList
+      .filter(flight => searchResults.value.findIndex(flightInSearch => flightInSearch.id === flight.id) < 0)
+      .filter((flight => {
+          if (flight.origin.toLowerCase() !== origin.toLowerCase()) {
+            return false
+          }
+          if (flight.destiny.toLowerCase() !== destiny.toLowerCase()) {
+            return false
+          }
+
+          return true
+        })
+      )
+
     setTimeout(
       () => {
         setLoadingState(false)
@@ -188,5 +203,5 @@ export const useSearchStore = defineStore('counter', () => {
     )
   }
 
-  return { cities, searchResults, loadingResults, searchFlights }
+  return { cities, searchResults, relatedResults, loadingResults, searchFlights }
 })

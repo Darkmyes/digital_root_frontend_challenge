@@ -109,6 +109,25 @@
           <FlightCard :flight="flight"/>
         </v-col>
       </v-row>
+
+      <div v-if="!searchStore.loadingResults && searchStore.relatedResults.length > 0">
+        <h2 class="text-center pt-10 pb-2 px-6 d-flex flex-column align-center text-primary"> Flights related to your search </h2>
+
+        <v-row class="pa-4">
+          <v-col
+            cols="12"
+            sm="6"
+            md="4"
+            lg="3"
+            xl="2"
+            class="pa-2"
+            v-for="flight, index in searchStore.relatedResults"
+            v-bind:key="index"
+          >
+            <FlightCard :flight="flight"/>
+          </v-col>
+        </v-row>
+      </div>
     </div>
 
   </main>
