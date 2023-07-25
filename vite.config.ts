@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  /* base: '/digital_root_frontend_challenge/', */
   plugins: [
     vue(),
   ],
