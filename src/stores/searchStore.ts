@@ -171,10 +171,10 @@ export const useSearchStore = defineStore('counter', () => {
       if (flight.destiny.toLowerCase() !== destiny.toLowerCase()) {
         return false
       }
-      if (flight.departure.toLowerCase().replace(RegExp('/'), '-') !== departureDate.toLowerCase().replace(RegExp('/'), '-')) {
+      if (flight.departure.toLowerCase().replace(RegExp('/', 'g'), '-') !== departureDate.toLowerCase().replace(RegExp('/', 'g'), '-')) {
         return false
       }
-      if (flight.return.toLowerCase().replace(RegExp('/'), '-') !== returnDate.toLowerCase().replace(RegExp('/'), '-')) {
+      if (flight.return.toLowerCase().replace(RegExp('/', 'g'), '-') !== returnDate.toLowerCase().replace(RegExp('/', 'g'), '-')) {
         return false
       }
 
